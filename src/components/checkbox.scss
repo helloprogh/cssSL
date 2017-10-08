@@ -1,41 +1,43 @@
-.switch-wrap {
+.sl-checkbox {
+    display: inline-block;
     position: relative;
-    > #switch {
-        position: absolute;
+    > .checkbox-input {
+        display: none;
+        &:checked {
+            + .switch-label:after {
+                left: 25px;
+            }
+            + .switch-label:before {
+                background-color: #444;
+            }
+        }
     }
-    > .switch {
+    > .switch-label {
         left: 0;
-        display: block;
+        display: inline-block;
         width: 50px;
         height: 25px;
         border-radius: 25px;
         background-color: #000;
         position: relative;
         cursor: pointer;
-    }
-    > .switch:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        width: 50px;
-        height: 25px;
-        border-radius: 25px;
-    }
-    > .switch:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        width: 25px;
-        height: 25px;
-        border-radius: 25px;
-        background-color: #fff;
-    }
-    > #switch:checked {
-        + .switch:after {
-            left: 25px;
+        vertical-align: middle;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 50px;
+            height: 25px;
+            border-radius: 25px;
         }
-        + .switch:before {
-            background-color: #444;
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            background-color: #fff;
         }
     }
 }
