@@ -1,0 +1,41 @@
+.switch-wrap {
+    position: relative;
+    > #switch {
+        position: absolute;
+    }
+    > .switch {
+        left: 0;
+        display: block;
+        width: 50px;
+        height: 25px;
+        border-radius: 25px;
+        background-color: #000;
+        position: relative;
+        cursor: pointer;
+    }
+    > .switch:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 50px;
+        height: 25px;
+        border-radius: 25px;
+    }
+    > .switch:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        border-radius: 25px;
+        background-color: #fff;
+    }
+    > #switch:checked {
+        + .switch:after {
+            left: 25px;
+        }
+        + .switch:before {
+            background-color: #444;
+        }
+    }
+}
