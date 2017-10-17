@@ -1,1 +1,5 @@
 @import "checkbox";
+
+.checkbox-input {
+    @include checkbox-switch-one(100px, 25px, #fff, #1C1C1C);
+}

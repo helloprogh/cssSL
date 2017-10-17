@@ -26,17 +26,29 @@
     }
 }
 
-.checkbox-input {
-    width: 50px;
-    height: 25px;
+@mixin switch-toggle-checked($lf_len) {
+    left: $lf_len;
+}
+
+@mixin switch-box-checked($checked_col) {
+    background-color: $checked_col;
+} 
+
+@mixin checkbox-switch-one($width, $height, $tog_col, $box_col, $radius: $height) {
+    $tog_width: $height;
+    $checked_box_col: lighten($box_col, 30%);
+
+    width: $width;
+    height: $height;
     position: relative;
     vertical-align: middle;
-    @include switch-box(50px, 25px, #eee);
-    @include switch-toggle(25px, #000);
+    cursor: pointer;
+    @include switch-box($width, $height, $box_col);
+    @include switch-toggle($tog_width, $tog_col);
     &:checked:before {
-        left: 25px;
+        @include switch-toggle-checked($width - $tog_width);
     }
     &:checked:after {
-        background-color: #aaa;
+        @include switch-box-checked($checked_box_col);
     }
 }
